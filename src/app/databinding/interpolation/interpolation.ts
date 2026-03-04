@@ -1,7 +1,15 @@
 import { Component } from '@angular/core';
-import { JsonPipe } from '@angular/common/types';
+import { JsonPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { User } from '../../user';
+
+export interface User {
+  name?: string | undefined;
+  position?: string;
+  department?: string;
+    details?:{
+      role: string | undefined;
+    }
+  }
 
 @Component({
   selector: 'app-interpolation',
@@ -23,11 +31,34 @@ export class Interpolation {
   dotnot2: string = "{{ user?.profile?.email }}";
   jpipe: string = "{{ user | json }}";
   isActive: boolean = false;
+  
   user: User = {
     name: 'Nash Carlo G. Dugyawe',
     position: 'Software Engineer',
     department: 'Information Technology',
     details: {role: 'Admin'}
   };
+
+  countries = [
+    { id: 'PH', name: 'Philippines' },
+    { id: 'US', name: 'United States' },
+    { id: 'JP', name: 'Japan' }
+  ];
+  selectedCountryId = 'PH'; // Initial value
+  
+  
+    // Array of strings
+    skills = ['Angular', 'TypeScript', 'RxJS'];
+  
+    // Array of objects
+    projects = [
+      { id: 1, name: 'Dashboard' },
+      { id: 2, name: 'Mobile App' }
+    ];
+  
+    // Interpolation can call methods too
+    getWelcomeMessage(): string {
+      return `Welcome, ${this.studentName}! Today we learn data binding.`;
+    }
   
 }

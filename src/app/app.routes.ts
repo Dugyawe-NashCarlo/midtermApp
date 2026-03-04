@@ -3,17 +3,17 @@ import {Attribute} from './databinding/attribute/attribute';
 import {Class} from './databinding/class/class';
 import {Style} from './databinding/style/style';
 import { Home } from './comps/home/home';
+import { Interpolation } from './databinding/interpolation/interpolation';
 import { Property } from './databinding/property/property';
 import { TwoWay } from './databinding/two-way/two-way';
-import { Event } from './databinding/event/event';
-import { Interpolation } from './databinding/interpolation/interpolation';
+import { EventBinding } from './databinding/event-binding/event-binding';
 
 export const routes: Routes = [
     {path: 'home', component: Home},
     {path: 'interpolation', component: Interpolation},
-    {path: 'property', component: Property},
-    {path: 'event', component: Event},
     {path: 'two-way', component: TwoWay},
+    {path: 'property', component: Property},
+    {path: 'event-binding', component: EventBinding},
     {path: 'attribute', component: Attribute},
     {path: 'class', component: Class},
     {path: 'style', component: Style},

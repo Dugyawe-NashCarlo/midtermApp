@@ -7,34 +7,24 @@
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link active" router-link="#">Home
+            <a class="nav-link active" routerLink="">Home
               <span class="visually-hidden">(current)</span>
             </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" router-link="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" router-link="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" router-link="#">About</a>
-          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" router-link="#" role="button" aria-haspopup="true" aria-expanded="false">Data Binding</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" router-link="Interpolation">Interpolation</a>
-              <a class="dropdown-item" router-link="property">Property-Binding</a>
-              <a class="dropdown-item" router-link="event">Event-Binding</a>
-              <a class="dropdown-item" router-link="two-way">Two-way-Binding</a>
+              <a class="dropdown-item" routerLink="/interpolation">Interpolation</a>
+              <a class="dropdown-item" routerLink="/property">Property-Binding</a>
+              <a class="dropdown-item" routerLink="/event-binding">Event-Binding</a>
+              <a class="dropdown-item" routerLink="/two-way">Two-way-Binding</a>
             </div>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" router-link="#" role="button" aria-haspopup="true" aria-expanded="false">Other Bindings</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" router-link="attribute">Attribute</a>
-              <a class="dropdown-item" router-link="class">Class</a>
-              <a class="dropdown-item" router-link="style">Style</a>
+              <a class="dropdown-item" routerLink="attribute">Attribute</a>
+              <a class="dropdown-item" routerLink="class">Class</a>
+              <a class="dropdown-item" routerLink="style">Style</a>
             </div>
           </li>
         </ul>
@@ -45,3 +35,5 @@
       </div>
     </div>
   </nav>
+
+

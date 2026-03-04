@@ -1,8 +1,9 @@
 export interface User {
+    id: number;
     name?: string | undefined;
     position?: string;
     department?: string;
     details?:{
-        role: string | undefined;
+        role: [number,  string];
     }
 }
