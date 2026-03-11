@@ -8,6 +8,8 @@ import { Property } from './databinding/property/property';
 import { TwoWay } from './databinding/two-way/two-way';
 import { EventBinding } from './databinding/event-binding/event-binding';
 import { Products } from './component/products/products';
+import { ProductsDetails } from './component/products/products-details/products-details';
+import { ProductsList } from './component/products/products-list/products-list';
 
 export const routes: Routes = [
     {path: 'home', component: Home},
@@ -19,5 +21,16 @@ export const routes: Routes = [
     {path: 'class', component: Class},
     {path: 'style', component: Style},
     {path: 'product', component: Products},
-    {path: '', redirectTo: 'home', pathMatch: 'full'}
+    {path: '', redirectTo: 'home', pathMatch: 'full'},
+
+    {path: 'products-list',
+        component: ProductsList,
+        children: [
+    {
+        path: ':id',
+        children:[
+            {path: 'details', component: ProductsDetails}
+        ]         
+    }]}
+    
 ];

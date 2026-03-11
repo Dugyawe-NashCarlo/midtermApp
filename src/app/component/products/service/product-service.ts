@@ -1,18 +1,13 @@
-import { Component } from '@angular/core';
-import { Product } from '../../models/product.interface';
-import { CommonModule } from '@angular/common';
+import { Injectable } from "@angular/core";
+import { Product } from "../../../models/product.interface";
 
-@Component({
-  selector: 'app-products',
-  imports: [CommonModule],
-  templateUrl: './products.html',
-  styleUrl: './products.css',
+@Injectable ({
+  providedIn: 'root',
 })
-export class Products {
-  selectedProduct: Product | null = null;
-  showModal: boolean = false;
 
-  product: Product[] = [
+export class ProductService {
+
+  private product: Product[] = [
     { id: 1, name: 'Wireless Mouse', category: 'Electronics', price: 25.99, stock: 50, status: 'Available', description: 'A wireless mouse used for gaming and for daily use' },
     { id: 2, name: 'Command And Conquer Generals Bundle', category: 'Video Game', price: 150.43, stock: 5, status: 'Limited', description: 'A videogame for strategy and building game' },
     { id: 3, name: 'Air Fryer', category: 'Kitchen', price: 93.00, stock: 12, status: 'Available', description: 'a compact, countertop convection appliance designed to simulate deep-frying by circulating hot air around food, achieving a crispy texture using little to no oil'},
@@ -25,8 +20,23 @@ export class Products {
     { id: 10, name: 'Water Bottle', category: 'Fitness', price: 12.99, stock: 100, status: 'Available', description: 'a portable, reusable or disposable container—typically made of stainless steel, plastic, or glass—designed to store and transport beverages'},
   ];
 
-  viewProductDetails(p: Product) {
-    this.selectedProduct = p;
-    this.showModal = true;
+  getProducts (): Product[]{
+    return this.product;
   }
+
+  getProductById (id: number): Product | undefined {
+    return this.product.find(e => e.id === id);
+  }
+
+  updateProduct (updated: Product): void {
+    const idx = this.product.findIndex(e => e.id === updated.id);
+    if (idx !== -1) this.product[idx] = {...updated};
+  }
+
+  isAuthenticated(): boolean {
+    return !!sessionStorage.getItem('auth_token');
+  }
+
+  login(): void {sessionStorage.setItem('auth_token', 'demo-token');}
+  logout(): void {sessionStorage.removeItem('auth_token');}
 }
